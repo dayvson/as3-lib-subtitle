@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="" >
+<testsuite  name="Default Test Suite" project="as3-lib-subtitle">
+<testsuite name="com.dayvson.subtitle.formats.srt:SRTSubItemTest" type="testcaseclass"/>
+<testsuite name="com.dayvson.subtitle.formats.srt:SRTSubTitleTest" type="testcaseclass"/>
+<testsuite name="com.dayvson.subtitle.formats.srt:SRTTimeFormatTest" type="testcaseclass"/>
+</testsuite>
+</testrun>
