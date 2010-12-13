@@ -1,0 +1,14 @@
+= AS3 Subtitle Library
+Ainda em desenvolvimento...
+
+
+== Configuração de Ambiente de Desenvolvimento
+
+É recomendado utilizar o FlashBuilder 4 como IDE para desenvolver a aplicação,
+no entanto, é possível desenvolver em qualquer editor de texto e utilizar as
+ferramentas presentes no Flex SDK para compilar.
+
+Para facilitar a compilação pode-se usar ainda o Sprouts (http://projectsprouts.org).
+O Sprouts irá baixar todas as bibliotecas necessárias para compilar e rodar a
+aplicação (Flex SDK, Flash Player Debugger, por exemplo).
+
