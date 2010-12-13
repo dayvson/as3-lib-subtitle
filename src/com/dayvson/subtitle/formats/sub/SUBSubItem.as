@@ -6,10 +6,10 @@ package com.dayvson.subtitle.formats.sub
 		/*
 		{4565}{4673}- Miksi minun on tultava mukaan?|- Koska maito on loppu.
 		*/
-		public var startTime	:Number = 0.0;
-		public var endTime		:Number = 0.0;
+		public var startTime	:Number = -1;
+		public var endTime		:Number = -1;
+		public var duration		:Number = -1;
 		public var text			:String = "";
-		public var duration		:Number = 0.0;
 		
 		private const BLOCK_PATTERN:RegExp = /^(\{.+\})/g;
 		private const TIME_PATTERN:RegExp = /([0-9]+)/g; 
