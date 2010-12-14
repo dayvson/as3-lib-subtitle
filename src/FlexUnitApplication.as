@@ -2,9 +2,7 @@ package
 {
 	import Array;
 	
-	import com.dayvson.subtitle.formats.srt.SRTSubItemTest;
-	import com.dayvson.subtitle.formats.srt.SRTSubTitleTest;
-	import com.dayvson.subtitle.formats.srt.SRTTimeFormatTest;
+	import com.dayvson.subtitle.base.SubTitleItemTest;
 	
 	import flash.display.Sprite;
 	
@@ -27,9 +25,7 @@ package
 		public function currentRunTestSuite():Array
 		{
 			var testsToRun:Array = new Array();
-			testsToRun.push(com.dayvson.subtitle.formats.srt.SRTSubItemTest);
-			testsToRun.push(com.dayvson.subtitle.formats.srt.SRTSubTitleTest);
-			testsToRun.push(com.dayvson.subtitle.formats.srt.SRTTimeFormatTest);
+			testsToRun.push(com.dayvson.subtitle.base.SubTitleItemTest);
 			return testsToRun;
 		}
 	}

@@ -1,6 +1,8 @@
 package 
 {
-	import com.dayvson.subtitle.SubtitleEvent;
+	import com.dayvson.subtitle.base.SubTitleItem;
+	import com.dayvson.subtitle.events.SubtitleEvent;
+	import com.dayvson.subtitle.formats.SRTResource;
 	import com.dayvson.subtitle.formats.srt.SRTSubItem;
 	import com.dayvson.subtitle.formats.srt.SRTSubTitle;
 	import com.dayvson.subtitle.formats.srt.SRTTimeFormat;
@@ -25,12 +27,14 @@ package
 				
 			}) 
 			*/
-			var subtitle:SRTSubTitle = new SRTSubTitle();
+			
+			
+			var subtitle:SRTResource = new SRTResource();
 			subtitle.load("fixtures/bigbang.srt");
 			subtitle.addEventListener(SubtitleEvent.LOADED_SUBTITLE, function(e:SubtitleEvent):void{
 				trace("loaded");
 				trace(subtitle.lines.length);
-				var subitem:SRTSubItem = subtitle.lines[subtitle.lines.length-1];
+				var subitem:SubTitleItem = subtitle.lines[subtitle.lines.length-1];
 				trace(subitem.duration, subitem.text, subitem.startTime, subitem.endTime, subitem.index);
 				
 			});

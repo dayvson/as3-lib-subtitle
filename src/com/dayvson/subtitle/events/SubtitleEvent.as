@@ -1,4 +1,4 @@
-package com.dayvson.subtitle
+package com.dayvson.subtitle.events
 {
 	import flash.events.Event;
 	

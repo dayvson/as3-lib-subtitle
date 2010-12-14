@@ -1,8 +1,12 @@
 package com.dayvson.subtitle
 {
+	import com.dayvson.subtitle.formats.SRTResource;
+	import com.dayvson.subtitle.formats.SUBResource;
+	import com.dayvson.subtitle.formats.srt.SRTSubTitle;
+	import com.dayvson.subtitle.interfaces.ISubTitle;
+	
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
-	import com.dayvson.subtitle.formats.srt.SRTSubTitle;
 	
 	public class SubtitleManager extends EventDispatcher
 	{
@@ -14,9 +18,21 @@ package com.dayvson.subtitle
 		}
 		
 		public function addItem(args:Object):void{
-			var sub:SRTSubTitle = new SRTSubTitle();
-			sub.load(args.url);
-			list.push({sub:sub, idioma:args.idioma});
+			var subtitle:ISubTitle;
+			switch(args.kind){
+				case "SUB":
+					subtitle = new SUBResource();
+					break;
+				case "STR":
+					subtitle = new SRTResource();
+					break;
+			}
+			if(args.url){
+				subtitle.load(args.url);
+			}else if(args.content){
+				subtitle.parse(args.content);
+			}
+			list.push({sub:sub, kind:args.kind, idioma:args.idioma});
 		}
 	}
 }
