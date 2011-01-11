@@ -1,5 +1,51 @@
 = AS3 Subtitle Library
-Ainda em desenvolvimento...
+
+==SubRip .SRT description
+
+The SubRip file format is "perhaps the most basic of all subtitle formats." 
+SubRip files are named with the extension .srt, and contain formatted plain text. 
+The time format used is hours:minutes:seconds,milliseconds. 
+The decimal separator used is the comma, since the program was written in France. 
+The line break used is often the CR+LF pair. Subtitles are numbered sequentially, starting at 1.
+
+== SubRip estructure
+Subtitle number
+Start time --> End time
+Text of subtitle (one or more lines)
+Blank line[10][9]
+
+== SubRip .srt file example
+1
+00:00:20,000 --> 00:00:24,400
+Altocumulus clouds occur between six thousand
+ 
+2 
+00:00:24,600 --> 00:00:27,800 
+and twenty thousand feet above ground level.
+
+
+
+== SubViewer
+
+SubViewer uses text files with the .sub extension to describe timing and titling data. 
+Alternate languages or intents (e.g. "signs only", "version 1.0 compatible") can be included by creating a separate .sub file for each case.
+A header section, identified by [INFORMATION] tags, contains metadata and rendering instructions. 
+Immediately following is a [SUBTITLE] section, consisting of comma-delimited time ranges (accurate to one hundredth of a second) and a caption to be displayed during each range:
+
+== MicroDVD .sub description
+MicroDVD subtitle files have .sub filename extensions. 
+These files may come along with a video file. 
+Media player applications that support external subtitle files are responsible for locating correct .sub files.
+MicroDVD subtitle files consist of multiple lines, each defining a portion of the subtitle text that must be displayed between certain given video frames. The line syntax is:
+
+== MicroDVD estructure
+{start-frame}{stop-frame}Text
+
+== MicroDVD .sub file example
+For example, if "Hello!" is to be displayed during the first 25 frames of a digital video, clip or movie, the corresponding .sub file must contain the line:[1]
+{0}{25}Hello!
+{0}{25}Hello!|Word!
+The line break used is | caracter
 
 
 == Configuração de Ambiente de Desenvolvimento
