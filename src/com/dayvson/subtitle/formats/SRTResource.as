@@ -7,7 +7,7 @@ package com.dayvson.subtitle.formats
 
 	public class SRTResource extends SubTitleBase
 	{
-		protected static const ROW_PATTERN:RegExp = /\n\r?\n/;
+		protected static const ROW_PATTERN:RegExp = /\r?\n/;
 		protected static const TIME_PATTERN:RegExp =/([0-9]{2}):([0-9]{2}):([0-9]{2}),([0-9]*)?/g;
 		public function SRTResource()
 		{
@@ -15,13 +15,14 @@ package com.dayvson.subtitle.formats
 		}
 
 		override public function parseSubtitleRowAndAddItem(item:String):Boolean{
+			
 			if(item == null ){
 				return false;
 			} 
 			var result:Array = item.split(ROW_PATTERN);
 			if(result.length < 2) {
 				return false;
-			} 
+			}
 			var times:Array = (result[1] as String).match(TIME_PATTERN);
 			var itemObject:Object = { startTime: SRTResource.getTimeStamp(times[0]), 
 								endTime: SRTResource.getTimeStamp(times[1]),
