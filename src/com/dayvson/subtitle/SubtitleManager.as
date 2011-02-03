@@ -16,6 +16,14 @@ package com.dayvson.subtitle
 			list = [];
 			super(target);
 		}
+		public function getSubtitle(id:String):ISubTitle{
+			list.forEach(function(item:Object){
+				if(item.id == id){
+					return item;
+				}
+			});
+			return;
+		}
 		
 		public function addItem(args:Object):void{
 			var subtitle:ISubTitle;
@@ -32,7 +40,7 @@ package com.dayvson.subtitle
 			}else if(args.content){
 				subtitle.parse(args.content);
 			}
-			list.push({sub:sub, kind:args.kind, idioma:args.idioma});
+			list.push({sub:sub, kind:args.kind, id:args.id, idioma:args.idioma});
 		}
 	}
 }

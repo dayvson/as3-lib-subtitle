@@ -33,7 +33,7 @@ package com.dayvson.subtitle.base
 					return item;
 				}
 			}
-			return new SubTitleItem();
+			return null;
 		}
 		
 		public function parse(data:String):void{
