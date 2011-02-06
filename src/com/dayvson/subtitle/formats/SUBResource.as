@@ -1,6 +1,7 @@
 package com.dayvson.subtitle.formats
 {
 	import com.dayvson.subtitle.base.SubTitleBase;
+	import com.dayvson.subtitle.base.SubTitleItem;
 
 	public class SUBResource extends SubTitleBase
 	{
@@ -31,13 +32,13 @@ package com.dayvson.subtitle.formats
 				return false;
 			} 
 			var times:Array = result[0].match(TIME_PATTERN);
-			var item:Object = { startFrame: Number(times[0]), 
+			var it:Object = { startFrame: Number(times[0]), 
 								endFrame: Number(times[1]),
 								startTime: Number(times[0]) * this.fps,
 								endTime: Number(times[1]) * this.fps,
 								text: result.split("|").join("\n"),
 								index: result[0] };
-			var subitem:SubTitleItem = new SubTitleItem(item);
+			var subitem:SubTitleItem = new SubTitleItem(it);
 			this.lines.push(subitem);
 			return true;
 		}
