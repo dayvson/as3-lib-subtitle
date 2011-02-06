@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="as3-lib-subtitle" default="main" basedir=".">
+
+	<taskdef name="compc" classname="flex.ant.CompcTask" classpath="${basedir}/lib/flexTasks.jar" />
+	<target name="main"  depends="clean, compile" description="Run all targets clean and compile"></target>
+	<property name="FLEX_HOME" location="/Applications/Adobe Flash Builder 4/sdks/4.1.0"/>
+	<target name="clean" description="Delete SWC files from bin-release">
+		<echo message="Deleting SWC file"/>
+		<delete failonerror="false">
+			<fileset dir="${basedir}/bin-release">
+				<include name="${ant.project.name}.swc"/>
+			</fileset>
+		</delete>
+	</target>
+	<target name="compile" description="Compile SWC">
+		<echo message="Compiling ${ant.project.name}.swc"/>
+		<compc fork="true" output="${basedir}/bin-release/${ant.project.name}.swc">
+		    <source-path path-element="${basedir}/src"/>
+			<optimize>true</optimize>
+		    <include-sources dir="${basedir}/src" includes="**/*.as **/*.mxml"/>
+		</compc>
+	</target>
+</project>
