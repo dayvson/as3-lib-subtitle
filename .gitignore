@@ -7,4 +7,4 @@ bin-debug/history/history.js
 bin-debug/history/historyFrame.html
 bin-debug/playerProductInstall.swf
 bin-debug/swfobject.js
-
+bin-debug/**
