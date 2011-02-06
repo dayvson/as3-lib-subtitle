@@ -2,7 +2,6 @@ package com.dayvson.subtitle
 {
 	import com.dayvson.subtitle.formats.SRTResource;
 	import com.dayvson.subtitle.formats.SUBResource;
-	import com.dayvson.subtitle.formats.srt.SRTSubTitle;
 	import com.dayvson.subtitle.interfaces.ISubTitle;
 	
 	import flash.events.EventDispatcher;
@@ -10,6 +9,8 @@ package com.dayvson.subtitle
 	
 	public class SubtitleManager extends EventDispatcher
 	{
+		public static const SUB_KIND:String = "SUB";
+		public static const SRT_KIND:String = "SRT";
 		public var list:Array;
 		public function SubtitleManager(target:IEventDispatcher=null)
 		{
@@ -17,30 +18,31 @@ package com.dayvson.subtitle
 			super(target);
 		}
 		public function getSubtitle(id:String):ISubTitle{
-			list.forEach(function(item:Object){
+			list.forEach(function(item:Object):Object{
 				if(item.id == id){
-					return item;
+					return item.subtitle;
 				}
+				return null;
 			});
-			return;
+			return null;
 		}
 		
-		public function addItem(args:Object):void{
+		public function addItem(url:String = null, kind:String = "SRT", id:String = null, language:String = null, rawcontent:String = null):void{
 			var subtitle:ISubTitle;
-			switch(args.kind){
-				case "SUB":
+			switch(kind){
+				case SUB_KIND:
 					subtitle = new SUBResource();
 					break;
-				case "STR":
+				case SRT_KIND:
 					subtitle = new SRTResource();
 					break;
 			}
-			if(args.url){
-				subtitle.load(args.url);
-			}else if(args.content){
-				subtitle.parse(args.content);
+			if(url != null){
+				subtitle.load(url);
+			}else if( rawcontent != null ){
+				subtitle.parse(rawcontent);
 			}
-			list.push({sub:sub, kind:args.kind, id:args.id, idioma:args.idioma});
+			list.push({subtitle:subtitle, kind:kind, id:id, language:language});
 		}
 	}
 }
